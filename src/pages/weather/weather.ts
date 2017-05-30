@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, Refresher } from 'ionic-angular';
 import { WeatherService }from "../../providers/weather-service";
 /**
  * Generated class for the Weather page.
@@ -18,11 +18,12 @@ export class Weather {
   currentData: any={};
   daily: any={};
   loader: LoadingController; //Declare the loader module and call it
-
+  refresher: Refresher;
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public weatherService: WeatherService,
-              public loadingCtrl: LoadingController) {
+              public loadingCtrl: LoadingController,
+              ) {
     //Call the ionViewDidLoad inside the constructor
       this.ionViewDidLoad();
   }
@@ -44,5 +45,11 @@ export class Weather {
       this.daily=this.theWeather.daily;
     })
     loader.present();
+  }
+  // Added refresher method here
+  doRefresh(refresher){
+    setTimeout(()=>{
+      refresher.complete();
+    },2000);
   }
 }

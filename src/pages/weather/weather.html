@@ -14,6 +14,12 @@
 </ion-header>
 
 <ion-content>
+  <!--Pull to refresh UI added here-->
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to Refresh"
+        refreshingSpinner="circles" refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
   <!--Assign a condition if data is not there, dont display our grid-->
   <ion-grid *ngIf="daily.data!=undefined">
     <ion-row>
