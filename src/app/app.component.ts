@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { WeatherService} from "../providers/weather-service";
 
 import { Weather } from "../pages/weather/weather";
 import { Locations } from "../pages/locations/locations";
@@ -16,10 +17,13 @@ export class MyApp {
 
   pages: Array<{title: string, component: any, icon: string}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform,
+              public statusBar: StatusBar,
+              public splashScreen: SplashScreen,
+              public weatherService: WeatherService) {
 
     this.initializeApp();
-    
+
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Edit Locations', component: Locations, icon: 'create'},
