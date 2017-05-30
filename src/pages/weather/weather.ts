@@ -1,12 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, Refresher } from 'ionic-angular';
 import { WeatherService }from "../../providers/weather-service";
-/**
- * Generated class for the Weather page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+import { Geolocation }from "@ionic-native/geolocation";
+import { CurrentLoc }from "../../interfaces/current-loc";
+
 @IonicPage()
 @Component({
   selector: 'page-weather',
@@ -19,18 +16,20 @@ export class Weather {
   daily: any={};
   loader: LoadingController; //Declare the loader module and call it
   refresher: Refresher;
+  currentloc: CurrentLoc={lat:0, lon:0}; //varaible that implements interface
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public weatherService: WeatherService,
               public loadingCtrl: LoadingController,
+              public geolocation: Geolocation
               ) {
     //Call the ionViewDidLoad inside the constructor
       this.ionViewDidLoad();
   }
-
   ionViewDidLoad() {
     setTimeout(()=>{
       this.InitializeWeathering();
+      this.GetGeo();
     },500)
   }
   //Create a method and then call it via ionViewDidLoad()
@@ -45,6 +44,16 @@ export class Weather {
       this.daily=this.theWeather.daily;
     })
     loader.present();
+  }
+  // Adding Geolocation method and calling it in constructor
+  GetGeo(){
+    //getCurrentPosition will store value in the interface defined above
+    this.geolocation.getCurrentPosition().then(pos=>{
+      console.log('lat: '+pos.coords.latitude+', lon: '+pos.coords.longitude);
+      this.currentloc.lat=pos.coords.latitude;
+      this.currentloc.lon=pos.coords.longitude;
+      this.currentloc.timestamp=pos.timestamp;
+    });
   }
   // Added refresher method here
   doRefresh(refresher){

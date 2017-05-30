@@ -1,10 +1,13 @@
 # Ionic Weather App
   Weather page and location page added
 ## Major Issue
-  * No issues
-### Upto Now
-  * Pages for weather and location and services vice versa added.
-  * Data from Data.json promise included.
-  * Fetching data and projecting to weather page is added.
-  * Updated Loading dialogs at (30-May=>2.26pm).
-  * Updated refresher feature at (30-May=>3:02pm).
+  * (update from 30-May=>3:46pm) Cannot find module @ionic-native/geolocation
+  ```
+      To Fix this
+    - delete geolocation plugin:
+        ionic plugin re cordova-plugin-geolocation
+    - then do:
+        npm install @ionic-native/core --save
+        npm install @ionic-native/geolocation --save
+        ionic plugin add corodva-plugin-geolocation
+  ```

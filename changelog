@@ -1,0 +1,12 @@
+### Upto Now
+(30-May=>2.00pm).
+  * Pages for weather and location and services vice versa added.
+  * Data from Data.json promise included.
+  * Fetching data and projecting to weather page is added.
+(30-May=>2.26pm).
+  * Updated Loading dialogs
+(30-May=>3:02pm).
+  * Updated refresher feature
+  * Updated Geolocation By obtaining the Lat and Long and storing it in a varaible.
+  * Created interfaces directory and added Current-loc.ts
+  * Import Interface in weather.ts and created a varaible to store lat and lon
