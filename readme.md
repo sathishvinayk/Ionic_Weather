@@ -1,7 +1,8 @@
-# Ionic Weather App
+# Ionic Weather App BranchA
   Weather page and location page added
 ## Major Issue
-  * (update from 30-May=>3:46pm) Cannot find module @ionic-native/geolocation
+  * (update from 30-May=>3:46pm) 
+    1. Cannot find module @ionic-native/geolocation
   ```
       To Fix this
     - delete geolocation plugin:
