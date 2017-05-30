@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { WeatherService }from "../../providers/weather-service";
 /**
  * Generated class for the Weather page.
@@ -17,10 +17,12 @@ export class Weather {
   theWeather: any={};
   currentData: any={};
   daily: any={};
+  loader: LoadingController; //Declare the loader module and call it
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              public weatherService: WeatherService) {
+              public weatherService: WeatherService,
+              public loadingCtrl: LoadingController) {
     //Call the ionViewDidLoad inside the constructor
       this.ionViewDidLoad();
   }
@@ -32,10 +34,15 @@ export class Weather {
   }
   //Create a method and then call it via ionViewDidLoad()
   InitializeWeathering(){
+    let loader=this.loadingCtrl.create({
+      content: "Loading Weather Data...",
+      duration:3000
+    })
     this.weatherService.getWeather().then(theResult=>{
       this.theWeather=theResult;
       this.currentData=this.theWeather.currently;
       this.daily=this.theWeather.daily;
     })
+    loader.present();
   }
 }
