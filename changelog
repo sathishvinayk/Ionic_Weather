@@ -26,3 +26,12 @@
   * Added the lat and lon of passed parameter inside the load method
   * Also passed the Interface values as parameters into getWeather method.
   * Changed the GetGeo() second promise this.weatherService.getWeather => this.weatherService.getWeather(currentloc)
+(31-may=>3:28pm)
+  * Getting other location weather places added in the sidebar
+  * Imported CurrentLoc from interfaces.
+  * Included locations property to be optional to pages property.
+  * Filed some locations in the this.pages array.
+  * Added a hasOwnProperty to verify geoloc and title property is present
+  * Called the geoloc by using this.navParams.get('geoloc').
+  * Created a if else loop, to check whether existing value is there , else create a new interface to hold the new value.
+  * Added page.title value from app.component.ts via this.navParams.get('title').

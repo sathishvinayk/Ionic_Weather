@@ -9,7 +9,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Current Location</ion-title>
+    <ion-title>{{pageTitle}}</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -24,15 +24,15 @@
   <ion-grid *ngIf="daily.data!=undefined">
     <ion-row>
       <ion-col col-12>
-        <h1>{{currentData.temperature | number: '.0-0'}}</h1>
+        <h1>{{currentData.temperature | number: '.0-0'}} &deg;</h1>
         <p>{{currentData.summary}}</p>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col col-4>
-        {{daily.data[0].temperatureMax | number: '.0-0'}}&deg;
+        {{daily.data[0].temperatureMax | number: '.0-0'}} &deg;
         <br />
-        {{daily.data[0].temperatureMin | number: '.0-0'}}&deg;
+        {{daily.data[0].temperatureMin | number: '.0-0'}} &deg;
       </ion-col>
       <ion-col col-4>
         {{daily.data[1].temperatureMax | number: '.0-0'}}&deg;
