@@ -20,7 +20,8 @@ export class WeatherService {
       return Promise.resolve(this.data);
     }
     return new Promise(resolve=>{
-      this.http.get('assets/data/data.json').map(res=>res.json()).subscribe(data=>{
+      //Calling Live load from darksky(api call)
+      this.http.get('/api/37.8267,-122.4233').map(res=>res.json()).subscribe(data=>{
         this.data=data;
         resolve(this.data);
       });
