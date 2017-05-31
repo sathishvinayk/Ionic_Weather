@@ -9,6 +9,14 @@
   * Updated refresher feature
   * Updated Geolocation By obtaining the Lat and Long and storing it in a varaible.
   * Created interfaces directory and added Current-loc.ts
-  * Import Interface in weather.ts and created a varaible to store lat and lon
+  * Import Interface in weather.ts and created a variable to store lat and lon
 (31-May=>10:59Am)
-  * Added Api key from darksky to the app
+  * Added Api key from darksky to the app to ionic.config.json
+  * Called api in weather.service.ts
+  * Ca
+(31-May=>12:06pm)[Opening a new Branch named Branch B]
+  * Lat and long values were hardcoded to darksky, created a promise in weather.ts
+  * Refactorized the loader functionality inside GetGeo() method.
+  * Removed the Timer (duration property from loader ctrl)
+  * added loader.dismiss() to show loading icon for weather app to load the data.
+  * Stored the values returned from asynchronous to interface.

@@ -28,31 +28,42 @@ export class Weather {
   }
   ionViewDidLoad() {
     setTimeout(()=>{
-      this.InitializeWeathering();
+      //this.InitializeLoader();
       this.GetGeo();
     },500)
   }
   //Create a method and then call it via ionViewDidLoad()
-  InitializeWeathering(){
+  InitializeLoader(){
     let loader=this.loadingCtrl.create({
       content: "Loading Weather Data...",
       duration:3000
-    })
-    this.weatherService.getWeather().then(theResult=>{
-      this.theWeather=theResult;
-      this.currentData=this.theWeather.currently;
-      this.daily=this.theWeather.daily;
     })
     loader.present();
   }
   // Adding Geolocation method and calling it in constructor
   GetGeo(){
+    //Rearranging Loader function here.
+    //
+    let loader=this.loadingCtrl.create({
+      content: "Loading Weather Data...",
+    });
+    loader.present();
     //getCurrentPosition will store value in the interface defined above
     this.geolocation.getCurrentPosition().then(pos=>{
       console.log('lat: '+pos.coords.latitude+', lon: '+pos.coords.longitude);
       this.currentloc.lat=pos.coords.latitude;
       this.currentloc.lon=pos.coords.longitude;
       this.currentloc.timestamp=pos.timestamp;
+      return this.currentloc;
+      //Promise added below for asynchronous process.
+    }).then(currentloc=>{
+        //Stored the values returned from asynchronous to interface.
+        this.weatherService.getWeather().then(theResult=>{
+          this.theWeather=theResult;
+          this.currentData=this.theWeather.currently;
+          this.daily=this.theWeather.daily;
+          loader.dismiss();
+      });
     });
   }
   // Added refresher method here
