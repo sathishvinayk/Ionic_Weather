@@ -10,3 +10,5 @@
   * Updated Geolocation By obtaining the Lat and Long and storing it in a varaible.
   * Created interfaces directory and added Current-loc.ts
   * Import Interface in weather.ts and created a varaible to store lat and lon
+(31-May=>10:59Am)
+  * Added Api key from darksky to the app
