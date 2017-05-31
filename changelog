@@ -20,3 +20,9 @@
   * Removed the Timer (duration property from loader ctrl)
   * added loader.dismiss() to show loading icon for weather app to load the data.
   * Stored the values returned from asynchronous to interface.
+(31-may=>1:04pm)
+  * Stored values from interfaces (a.k.a named as CurrentLoc) were imported in weather-service.ts.
+  * Passed the Interface values as parameters to load() function to make the API call.
+  * Added the lat and lon of passed parameter inside the load method
+  * Also passed the Interface values as parameters into getWeather method.
+  * Changed the GetGeo() second promise this.weatherService.getWeather => this.weatherService.getWeather(currentloc)
