@@ -23,7 +23,7 @@ export class WeatherService {
     }
     return new Promise(resolve=>{
       //Calling darksky with adding the data returned from Interface CurrentLoc
-      this.http.get('/api/'+currentLoc.lat + ',' + currentLoc.lon).map(res=>res.json()).subscribe(data=>{
+      this.http.get('/api/forecast/'+currentLoc.lat + ',' + currentLoc.lon).map(res=>res.json()).subscribe(data=>{
         this.data=data;
         resolve(this.data);
       });
