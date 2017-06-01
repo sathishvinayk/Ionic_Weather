@@ -5,11 +5,14 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { Weather } from "../pages/weather/weather";
 import { Locations } from "../pages/locations/locations";
-import { WeatherService } from "../providers/weather-service";
+
 import { GeocodeService } from "../providers/geocode-service";
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Geolocation } from "@ionic-native/geolocation";
+
+import { WeatherService } from "../providers/weather-service";
+import { LocationsService }from "../providers/locations-service";
 
 @NgModule({
   declarations: [
@@ -33,7 +36,8 @@ import { Geolocation } from "@ionic-native/geolocation";
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     WeatherService,
-    GeocodeService,Geolocation
+    GeocodeService,Geolocation,
+    LocationsService
   ]
 })
 export class AppModule { }

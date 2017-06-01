@@ -1,24 +1,31 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+//import { CurrentLoc }from "../../interfaces/current-loc";
+import { WeatherLocation }from "../../interfaces/weather-location";
+import { LocationsService }from "../../providers/locations-service";
 
-/**
- * Generated class for the Locations page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 @IonicPage()
 @Component({
   selector: 'page-locations',
   templateUrl: 'locations.html',
 })
 export class Locations {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  //Calling Interface to store the values as a object and then assigning to variable named locs  with type array, 
+  locs: Array<WeatherLocation>;
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              public locationsService: LocationsService) {
+        this.ionViewDidLoad();
   }
-
   ionViewDidLoad() {
-    console.log('ionViewDidLoad Locations');
+    this.locationsService.getLocations().then(res=>{
+      return this.locs=res;
+    })
   }
-
+  deleteLocation(loc){
+    console.log("delete")
+  }
+  addLocation(){
+    console.log("add")
+  }
 }

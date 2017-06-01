@@ -37,3 +37,12 @@
   * Added page.title value from app.component.ts via this.navParams.get('title').
 (1-June=>2:30Pm)
   * Added Weatherservice to refresher component. So that when refresh happens it makes the call
+(1-June=>4:43Pm)
+  * Added Editing locations component
+  * Updated <ion-content> inside locations.html.Added <ion-list> inside locations.html
+  * Created a weather-location.ts file as a Interface inside Interfaces directory.
+  * Imported the weather-location interface into location.ts and added a variable as locs to assign the object to array which was imported from Interface.
+  * Added Two methods inside locations.ts
+  * Created a location-service.ts and added pages.
+  * Importd the service in app.module.ts
+  * Imported the service location-service.ts to location.ts file.
