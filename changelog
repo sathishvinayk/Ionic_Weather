@@ -35,3 +35,5 @@
   * Called the geoloc by using this.navParams.get('geoloc').
   * Created a if else loop, to check whether existing value is there , else create a new interface to hold the new value.
   * Added page.title value from app.component.ts via this.navParams.get('title').
+(1-June=>2:30Pm)
+  * Added Weatherservice to refresher component. So that when refresh happens it makes the call
