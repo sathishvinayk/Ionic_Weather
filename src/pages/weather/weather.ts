@@ -79,8 +79,12 @@ export class Weather {
   }
   // Added refresher method here
   doRefresh(refresher){
-    setTimeout(()=>{
+    //Adding weatherService to refersh when pulled down
+    this.weatherService.getWeather(this.currentloc).then(theResult=>{
+      this.theWeather=theResult;
+      this.currentData=this.theWeather.currently;
+      this.daily=this.theWeather.daily;
       refresher.complete();
-    },2000);
+    });
   }
 }
