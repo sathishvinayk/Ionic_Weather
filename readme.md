@@ -11,3 +11,9 @@
         npm install @ionic-native/geolocation --save
         ionic plugin add corodva-plugin-geolocation
   ```
+  * (update from 01-jun-2017) Cannot get http response
+    Post next day, launching app is not getting the http response from Darksky.net 
+   ```
+     To Fix this
+      Try changing get request from "weather-service.ts" file from this.http.get('/api/') to this.http.get('/api/forecast/')
+   ```
