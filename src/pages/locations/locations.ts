@@ -10,7 +10,7 @@ import { LocationsService }from "../../providers/locations-service";
   templateUrl: 'locations.html',
 })
 export class Locations {
-  //Calling Interface to store the values as a object and then assigning to variable named locs  with type array, 
+  //Calling Interface to store the values as a object and then assigning to variable named locs  with type array,
   locs: Array<WeatherLocation>;
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -23,7 +23,7 @@ export class Locations {
     })
   }
   deleteLocation(loc){
-    console.log("delete")
+    this.locationsService.removeLocation(loc);
   }
   addLocation(){
     console.log("add")
